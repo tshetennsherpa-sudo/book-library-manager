@@ -32,33 +32,32 @@ class Book:
     
     # Test code - we will remove this later
 
-if __name__ == "__main__":
-        print("Testing Book class....\n")
+# if __name__ == "__main__":
+#         print("Testing Book class....\n")
 
-        # Create a book
-        book1 = Book("The Hobbit","J.R.R. Tolkein", 1934)
-        print(book1)
+#         # Create a book
+#         book1 = Book("The Hobbit","J.R.R. Tolkein", 1934)
+#         print(book1)
 
-        # Mark it as read
-        book1.mark_as_read()
-        print(book1)
+#         # Mark it as read
+#         book1.mark_as_read()
+#         print(book1)
 
-        #Create another book
-        book2 = Book("1984" , "George Orwell",1949)
-        print(book2)
+#         #Create another book
+#         book2 = Book("1984" , "George Orwell",1949)
+#         print(book2)
 
-        print("\n Book class working")
+#         print("\n Book class working")
 
-        # Create your own favorite book
-        my_book = Book("Bhagvad Geeta","Krishna",2000)
-        print(my_book)
+#         # Create your own favorite book
+#         my_book = Book("Bhagvad Geeta","Krishna",2000)
+#         print(my_book)
 
-        #Mark it as read
-        my_book.mark_as_read()
-        print(my_book)
+#         #Mark it as read
+#         my_book.mark_as_read()
+#         print(my_book)
 
-        #change it back
-        my_book.mark_as_unread()
-        print(my_book)
+#         #change it back
+#         my_book.mark_as_unread()
+#         print(my_book)
 
-        

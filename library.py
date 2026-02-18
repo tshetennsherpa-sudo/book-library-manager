@@ -56,34 +56,34 @@ class Library:
         
         print(f"Book '{title}] not found in your library.")   
 
-if __name__ == "__main__":
-    print("Testing Library class....\n")
+# if __name__ == "__main__":
+#     print("Testing Library class....\n")
 
-    #Create a library
-    my_Library = Library()
+#     #Create a library
+#     my_Library = Library()
 
-    #Test empty Library
-    my_Library.view_books()
+#     #Test empty Library
+#     my_Library.view_books()
 
-    #Add some books
-    my_Library.add_book("The Hobbit","J.R.R Tolkein", 1937)
-    my_Library.add_book("1984","George Orwell", 1949)
-    my_Library.add_book("Python Crash Course","Eric Matthes",2019)
+#     #Add some books
+#     my_Library.add_book("The Hobbit","J.R.R Tolkein", 1937)
+#     my_Library.add_book("1984","George Orwell", 1949)
+#     my_Library.add_book("Python Crash Course","Eric Matthes",2019)
 
-    # View All Books
-    my_Library.view_books()
+#     # View All Books
+#     my_Library.view_books()
 
-    # Mark one as read
-    my_Library.mark_book_read("1984")
-    my_Library.view_books()
+#     # Mark one as read
+#     my_Library.mark_book_read("1984")
+#     my_Library.view_books()
 
-    #Delete a book
-    my_Library.delete_book("The Hobbit")
-    my_Library.view_books()
+#     #Delete a book
+#     my_Library.delete_book("The Hobbit")
+#     my_Library.view_books()
 
-    #Try to delete a book that doesnot exist
-    my_Library.delete_book("Harry Potter")
+#     #Try to delete a book that doesnot exist
+#     my_Library.delete_book("Harry Potter")
     
 
-    print("\n Library class working")
+#     print("\n Library class working")
 
