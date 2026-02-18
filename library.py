@@ -54,7 +54,60 @@ class Library:
                book.mark_as_read()
                return
         
-        print(f"Book '{title}] not found in your library.")   
+        print(f"Book '{title}] not found in your library.")  
+
+    def save_to_file(self, filename="library.json"):
+        """Save all books to a JSON File"""
+        import json
+
+        #Convert Book objects to dictionaries
+        books_data = []
+        for book in self.books:
+            book_dict = {
+                "title":book.title,
+                "author":book.author,
+                "year":book.year,
+                "is_read": book.is_read
+            }
+            books_data.append(book_dict)
+            
+        #Write to file
+        with open(filename, 'w') as file:
+            json.dump(books_data,file,indent=2)
+        
+        print(f"Library saved to {filename}")
+
+    def load_from_file(self, filename="library.json"):
+        """Load books from JSON file"""
+        import json
+        import os
+
+        #Check if file exists   
+        if not os.path.exists(filename):
+            print("No saved library found. Start fresh!")
+            return
+        
+        #Read from file
+        try:
+            with open(filename, 'r') as file:
+                books_data = json.load(file)
+
+            #Convert dictionaries back to Book objects
+            self.books = []
+            for book_dict in books_data:
+                book = Book(
+                    book_dict["title"],
+                    book_dict["author"],
+                    book_dict["year"]
+                )
+                book.is_read=book_dict["is_read"]
+                self.books.append(book)
+
+            print(f"Loaded {len(self.books)} books from {filename}")
+
+        except json.JSONDecodeError:
+            print("Error reading library file. Starting fresh!")
+
 
 # if __name__ == "__main__":
 #     print("Testing Library class....\n")

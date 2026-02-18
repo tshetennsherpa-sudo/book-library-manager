@@ -6,6 +6,9 @@ def main():
     """
     my_library = Library()
 
+    #Load saved books when program starts
+    my_library.load_from_file()
+
     print("+++Book Library Manager+++")
     print("Welcome to your personal Library!\n")
 
@@ -16,6 +19,7 @@ def main():
         print("3. Mark book as read")
         print("4. Delete a book")
         print("5. Quit")
+       
 
         choice = input("\n Choose an option(1-5):")
 
@@ -46,8 +50,9 @@ def main():
             print("\n---Delete Book---")
             title = input("Enter book title to delete: ")
             my_library.delete_book(title)
-
+        
         elif choice == "5":
+            my_library.save_to_file() # Add this line
             print("\nThanks for using Book Library Manager!")
             break # Exit the Loop
         else:

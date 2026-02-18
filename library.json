@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Sumnima",
+    "author": "tsheten",
+    "year": 2001,
+    "is_read": true
+  },
+  {
+    "title": "Maya",
+    "author": "tsheten",
+    "year": 2021,
+    "is_read": false
+  },
+  {
+    "title": "Tsheten",
+    "author": "tsheten",
+    "year": 1982,
+    "is_read": false
+  }
+]
