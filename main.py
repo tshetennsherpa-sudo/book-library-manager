@@ -18,7 +18,8 @@ def main():
         print("2. View all books")
         print("3. Mark book as read")
         print("4. Delete a book")
-        print("5. Quit")
+        print("5. Search & Filter")
+        print("6. Quit")
        
 
         choice = input("\n Choose an option(1-5):")
@@ -50,8 +51,40 @@ def main():
             print("\n---Delete Book---")
             title = input("Enter book title to delete: ")
             my_library.delete_book(title)
-        
+
         elif choice == "5":
+            print("\n----Search & Filter")
+            print("1. Search by Title")
+            print("2. Search by Author")
+            print("3. View unread books")
+            print("4. View read books")
+            print("5. Back to main menu")
+
+            search_choice = input("Select the choice(1-5): ")
+
+            if search_choice == "1":
+                search_term = input("Enter title to search: ")
+                results = my_library.search_by_title(search_term)
+                my_library .display_search_results(results, f"for '{search_term}'")
+
+            elif search_choice == "2":
+                search_term = input("Enter Author to Search: ")
+                results = my_library.search_by_author(search_term)
+                my_library.display_search_results(results, f"for '{search_term}'")
+
+            elif search_choice == "3":
+                results = my_library.filter_by_status(False)
+                my_library.display_search_results(results, "(Unread Books)")
+
+            elif search_choice == "4":
+                results = my_library.filter_by_status(True)
+                my_library.display_search_results(results, "(Read Books)")
+
+            elif search_choice == "5":
+                continue # Go back to the menu
+
+        
+        elif choice == "6":
             my_library.save_to_file() # Add this line
             print("\nThanks for using Book Library Manager!")
             break # Exit the Loop

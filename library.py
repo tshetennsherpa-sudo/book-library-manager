@@ -108,6 +108,54 @@ class Library:
         except json.JSONDecodeError:
             print("Error reading library file. Starting fresh!")
 
+    def search_by_title(self, search_term):
+        """Search for books by title"""
+        results = []
+        for book in self.books:
+            if search_term.lower() in book.title.lower():
+                results.append(book)
+
+        return results
+
+    def search_by_author(self, search_term):
+        """Search books by author"""
+        results = []
+        for book in self.books:
+            if search_term.lower() in book.author.lower():
+                results.append(book)
+
+        return results
+
+    def filter_by_status(self, read_status):
+        """Filter books by read/unread status
+    
+        Args:
+            read_status : True for read books, False for unread books
+        """
+        results = []
+        for book in self.books:
+            if book.is_read == read_status:
+                results.append(book)
+        
+        return results
+    
+    def display_search_results(self, results, search_type=""):
+        """Display a list of books from search reults."""
+
+        if not results:
+            print(f"No books found{search_type}.")
+            return
+        
+        print(f"\n---Search Results {search_type}---")
+
+        for index, book in enumerate(results, start=-1):
+            print(f"{index}.{book}")
+        print(f"\nFound {len(results)} book(s)")
+
+
+            
+                
+
 
 # if __name__ == "__main__":
 #     print("Testing Library class....\n")
