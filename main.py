@@ -18,11 +18,13 @@ def main():
         print("2. View all books")
         print("3. Mark book as read")
         print("4. Delete a book")
-        print("5. Search & Filter")
-        print("6. Quit")
+        print("5. Rate a book")
+        print("6. View Statistics")
+        print("7. Search & Filter")
+        print("8. Quit")
        
 
-        choice = input("\n Choose an option(1-5):")
+        choice = input("\n Choose an option(1-8):")
 
         if choice == "1":
             print("\n---Add a Book ---")
@@ -53,6 +55,14 @@ def main():
             my_library.delete_book(title)
 
         elif choice == "5":
+            print("\n--- Rate a Book ---")
+            title = input("Enter book title to rate: ")
+            my_library.rate_book(title)
+
+        elif choice == "6":
+            my_library.show_statistics()
+
+        elif choice == "7":
             print("\n----Search & Filter")
             print("1. Search by Title")
             print("2. Search by Author")
@@ -84,7 +94,7 @@ def main():
                 continue # Go back to the menu
 
         
-        elif choice == "6":
+        elif choice == "8":
             my_library.save_to_file() # Add this line
             print("\nThanks for using Book Library Manager!")
             break # Exit the Loop

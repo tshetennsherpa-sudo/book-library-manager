@@ -67,7 +67,8 @@ class Library:
                 "title":book.title,
                 "author":book.author,
                 "year":book.year,
-                "is_read": book.is_read
+                "is_read": book.is_read,
+                 "rating": book.rating 
             }
             books_data.append(book_dict)
             
@@ -101,6 +102,7 @@ class Library:
                     book_dict["year"]
                 )
                 book.is_read=book_dict["is_read"]
+                book.rating = book_dict.get("rating", 0)
                 self.books.append(book)
 
             print(f"Loaded {len(self.books)} books from {filename}")
@@ -152,6 +154,51 @@ class Library:
             print(f"{index}.{book}")
         print(f"\nFound {len(results)} book(s)")
 
+    def rate_book(self, title):
+        """Find a book and set its rating."""
+        for book in self.books:
+            if book.title.lower() == title.lower():
+                while True:
+                    try:
+                        rating = int(input("Rate this book(1-5 stars): "))
+                        book.set_rating(rating)
+                        break
+                    except ValueError:
+                        print("Please enter a number between 1 and 5.")
+                return
+            
+            print(f"Book '{title}' not found in your library.")
+
+    def show_statistics(self):
+        """Display library statistics."""
+        if not self.books:
+            print("Your library is empty. Add some books first!")
+            return
+        
+        total_books = len(self.books)
+        read_books = sum(1 for book in self.books if book.is_read)
+        unread_books = total_books - read_books
+        
+        # Calculate percentage read
+        percent_read = (read_books / total_books * 100) if total_books > 0 else 0
+        
+        # Calculate average rating (only for rated books)
+        rated_books = [book for book in self.books if book.rating > 0]
+        if rated_books:
+            avg_rating = sum(book.rating for book in rated_books) / len(rated_books)
+            avg_rating_str = f"{avg_rating:.1f} ★"
+        else:
+            avg_rating_str = "No ratings yet"
+        
+        print("\n" + "="*40)
+        print("📊 LIBRARY STATISTICS")
+        print("="*40)
+        print(f"Total Books:       {total_books}")
+        print(f"Read:              {read_books} ({percent_read:.1f}%)")
+        print(f"Unread:            {unread_books}")
+        print(f"Average Rating:    {avg_rating_str}")
+        print(f"Rated Books:       {len(rated_books)}/{total_books}")
+        print("="*40)
 
             
                 

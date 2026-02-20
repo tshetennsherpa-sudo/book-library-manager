@@ -8,6 +8,7 @@ class Book:
         self.author = author
         self.year = year
         self.is_read = False # New book start as unread
+        self.rating = 0  # New: 0 means not rated yet
 
     def mark_as_read(self):
         """
@@ -27,8 +28,26 @@ class Book:
         """
         Return a nice string representation of the book
         """
-        status ="Read" if self.is_read else "Unread"
-        return f"{self.title} by {self.author} ({self.year}) - {status}"
+        status ="✓ Read" if self.is_read else "○ Unread"
+
+        #Show rating if book has been rated
+        if self.rating>0:
+            stars="★" * self.rating + "☆" * (5 - self.rating)
+            return f"{self.title} by {self.author} ({self.year}) - {status} - {stars}"
+        else:
+            return f"{self.title} by {self.author} ({self.year} - {status})"
+    
+    # 2026-02-19 - I stopped here because i am tired, i will start tomorrow.
+    
+    def set_rating(self, rating):
+        """Set the book's rating (1-5 stars)"""
+        if 1<=rating<=5:
+            self.rating =rating
+            print(f"Rated '{self.title}' {rating} stars!")
+        else:
+            print("Rating must be between 1 and 5 starts.")
+
+
     
     # Test code - we will remove this later
 

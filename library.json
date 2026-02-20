@@ -3,18 +3,21 @@
     "title": "Sumnima",
     "author": "tsheten",
     "year": 2001,
-    "is_read": true
+    "is_read": true,
+    "rating": 4
   },
   {
     "title": "Maya",
     "author": "tsheten",
     "year": 2021,
-    "is_read": false
+    "is_read": false,
+    "rating": 5
   },
   {
     "title": "Tsheten",
     "author": "tsheten",
     "year": 1982,
-    "is_read": false
+    "is_read": false,
+    "rating": 2
   }
 ]
